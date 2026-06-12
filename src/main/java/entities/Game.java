@@ -25,21 +25,28 @@ public abstract class Game {
     public String getGameId() {
         return gameId;
     }
-
     public String getTitle() {
         return title;
     }
-
     public String getYearOfPublication() {
         return yearOfPublication;
     }
-
     public int getPrice() {
         return price;
     }
 
-    // setter
+    // setters
 
+
+    public void setGameId(String gameId) {
+        this.gameId = gameId;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    public void setYearOfPublication(String yearOfPublication) {
+        this.yearOfPublication = yearOfPublication;
+    }
     public void setPrice(int price) {
         this.price = price;
     }
