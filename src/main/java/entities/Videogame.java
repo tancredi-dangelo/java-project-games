@@ -16,7 +16,6 @@ public class Videogame extends Game{
 
     // constructor
     public Videogame(String gameId, String title, String yearOfPublication, int price, Platform platform, int durationOfGaming, Genre genre) {
-        super(gameId, title, yearOfPublication, price);
         this.platform = platform;
         this.durationOfGaming = durationOfGaming;
         this.genre = genre;
@@ -44,5 +43,18 @@ public class Videogame extends Game{
     }
     public void setGenre(Genre genre) {
         this.genre = genre;
+    }
+
+    // methods
+
+
+    @Override
+    public String toString() {
+        return ("Type: Videogame, Genre: " + getGenre()
+                + ", Title: " + getTitle()
+                + ", Year of pubblication: " + getYearOfPublication()
+                + ", Platform: " + getPlatform()
+                + ", Price: " + getPrice()
+                + ", Duration: " + getDurationOfGaming());
     }
 }

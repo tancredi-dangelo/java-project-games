@@ -1,6 +1,8 @@
 package entities;
 
-public class TableGame extends Game{
+public class TableGame extends Game {
+
+    // attributes
     private int numberOfPlayers;
     private int averageGameDuration;
 
@@ -15,21 +17,38 @@ public class TableGame extends Game{
         this.averageGameDuration = averageGameDuration;
     }
 
-    // getters and setters
+
+    // getters
 
     public int getAverageGameDuration() {
         return averageGameDuration;
     }
-
-    public void setAverageGameDuration(int averageGameDuration) {
-        this.averageGameDuration = averageGameDuration;
-    }
-
     public int getNumberOfPlayers() {
         return numberOfPlayers;
     }
 
+
+
+
+    // setters
+
+    public void setAverageGameDuration(int averageGameDuration) {
+        this.averageGameDuration = averageGameDuration;
+    }
     public void setNumberOfPlayers(int numberOfPlayers) {
         this.numberOfPlayers = numberOfPlayers;
     }
+
+
+    // methods
+
+    @Override
+    public String toString() {
+        return ("Type: Table Game, Title: " + getTitle()
+                + ", Year of publication: " + getYearOfPublication()
+                + ", Average Duration: " + getAverageGameDuration()
+                + ", Number Of Players: " + getNumberOfPlayers()
+                + ", Price: " + getPrice());
+    }
+
 }

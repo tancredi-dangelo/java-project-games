@@ -37,7 +37,6 @@ public abstract class Game {
 
     // setters
 
-
     public void setGameId(String gameId) {
         this.gameId = gameId;
     }
@@ -50,9 +49,6 @@ public abstract class Game {
     public void setPrice(int price) {
         this.price = price;
     }
-
-
-    // methods
 
 
 }
