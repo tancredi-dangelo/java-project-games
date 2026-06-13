@@ -22,7 +22,7 @@ public class GamesCollection {
 
     // initialize main games ArrayList
 
-    private List<Game> games = new ArrayList<>();
+    public final List<Game> games = new ArrayList<>();
 
 
     // --------------- METHODS ----------------
@@ -129,12 +129,12 @@ public class GamesCollection {
             if (gameToUpdate instanceof Videogame) {
 
                 System.out.println("Update platform: ");
-                String platformInput = scanner.next().toUpperCase();
+                String platformInput = scanner.nextLine().toUpperCase();
                 Platform platform = Platform.valueOf(platformInput);
                 ((Videogame) gameToUpdate).setPlatform(platform);
 
                 System.out.println("Update genre: ");
-                String genreInput = scanner.next().toUpperCase();
+                String genreInput = scanner.nextLine().toUpperCase();
                 Genre genre = Genre.valueOf(genreInput);
                 ((Videogame) gameToUpdate).setGenre(genre);
 
@@ -149,7 +149,6 @@ public class GamesCollection {
             System.out.println(ex.getMessage());
         }
 
-        // call to string method
     }
 
     // games collections print state method
@@ -165,14 +164,20 @@ public class GamesCollection {
                 .size();
 
         Game mostExpensiveGame = games.stream()
-                .max(Comparator.comparingInt(Game::getPrice));
+                .max(Comparator.comparingInt(Game::getPrice))
+                .orElse(null);
 
-        System.out.println("Total games: " + games.size() + ", Videogames: " + videogamesSize + ", Table Games: " + tablegamesSize + );
+        double averagePrice = games.stream()
+                .mapToInt(Game::getPrice)
+                .average()
+                .orElse(0.0);
+
+        System.out.println("Total games: " + games.size()
+                + ", Videogames: " + videogamesSize
+                + ", Table Games: " + tablegamesSize
+                + ", Most expensive: " + mostExpensiveGame
+                + ", Average price of the collection: " + averagePrice);
     }
-
-
-    // validation helpers
-
 
 
 
