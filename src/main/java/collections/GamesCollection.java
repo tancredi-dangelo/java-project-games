@@ -18,6 +18,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
+import static functions.InputHelpers.*;
+
 public class GamesCollection {
 
     // initialize main games ArrayList
@@ -100,47 +102,35 @@ public class GamesCollection {
 
             System.out.println("--------- Update game " + id + " ----------");
 
-            System.out.println("Update game title: ");
-            String title = scanner.next();
+            String title = validateString("Update game title: ");
             gameToUpdate.setTitle(title);
 
-            System.out.println("Update price: ");
-            int price = scanner.nextInt();
-            scanner.nextLine();
+            int price = validateInt("Update price: ");
             gameToUpdate.setPrice(price);
 
-            System.out.println("Update year of publication: ");
-            String yearPublication = scanner.next();
+            String yearPublication = validateString("Update year of publication: ");
             gameToUpdate.setYearOfPublication(yearPublication);
 
             if (gameToUpdate instanceof TableGame) {
 
-                System.out.println("Update number of people required to play: ");
-                int nPeople = scanner.nextInt();
-                scanner.nextLine();
+                int nPeople = validateInt("Update number of people required to play: ");
                 ((TableGame) gameToUpdate).setNumberOfPlayers(nPeople);
 
-                System.out.println("Update average duration of the game:");
-                int avgDuration = scanner.nextInt();
-                scanner.nextLine();
+                int avgDuration = validateInt("Update average duration of the game:");
                 ((TableGame) gameToUpdate).setAverageGameDuration(avgDuration);
             }
 
             if (gameToUpdate instanceof Videogame) {
 
-                System.out.println("Update platform: ");
-                String platformInput = scanner.nextLine().toUpperCase();
-                Platform platform = Platform.valueOf(platformInput);
+
+                Platform platform = validatePlatform("Platform: ");
                 ((Videogame) gameToUpdate).setPlatform(platform);
 
-                System.out.println("Update genre: ");
-                String genreInput = scanner.nextLine().toUpperCase();
-                Genre genre = Genre.valueOf(genreInput);
+
+                Genre genre = validateGenre("Update genre: ");
                 ((Videogame) gameToUpdate).setGenre(genre);
 
-                System.out.println("Update hours of gameplay: ");
-                int hoursGameplay = scanner.nextInt();
-                scanner.nextLine();
+                int hoursGameplay = validateInt("Update hours of gameplay: ");
                 ((Videogame) gameToUpdate).setDurationOfGaming(hoursGameplay);
 
             }
