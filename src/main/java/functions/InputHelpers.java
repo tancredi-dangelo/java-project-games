@@ -49,8 +49,8 @@ public class InputHelpers {
         while (true) {
             System.out.print(prompt);
             try {
-
-                return genre = validateGenre(-8) catch (IllegalArgumentException ex) {
+                return Genre.valueOf(scanner.nextLine().toUpperCase());
+            } catch (IllegalArgumentException ex) {
                 System.out.println("Genre not available. Choose from: ACTION, ADVENTURE, RPG, STRATEGY, SIMULATION, SPORTS, SHOOTER, SURVIVAL");
             }
         }
